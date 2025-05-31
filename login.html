@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="left-section">
+            <h2>Welcome Back!</h2>
+            <p>Provide your login details to continue</p>
+            <button class="submit-btn" id="signUpBtn">Register</button>
+        </div>
+        
+        <div class="right-section" id="formContainer">
+            <form id="loginForm" class="active">
+                <div class="input-field">
+                    <input type="email" placeholder="Email" required>
+                </div>
+                <div class="input-field">
+                    <input type="password" placeholder="Password" required>
+                </div>
+                <button type="submit" class="submit-btn">Login</button>
+                <p class="text">Don't have an account? <span class="toggle-register">Register</span></p>
+            </form>
+        </div>
+    </div>
+    <script>
+        document.getElementById('signUpBtn').addEventListener('click', () => {
+            window.location.href = 'register.html'; // Redirect to register page
+        });
+
+        document.querySelector('.toggle-register').addEventListener('click', () => {
+            window.location.href = 'register.html'; // Redirect to register page
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OldCare - Compassionate Elderly Care</title>
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <link href="css/gallery.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap"
+      rel="stylesheet"/>
+  </head>
+  <body>
+    <header>
+        <nav class="navbar navbar-expand-lg fixed-top" aria-label="Main navigation">
+          <div class="container">
+            <a class="navbar-brand d-block" href="index.html" aria-label="OldCare Home Page">
+              <img id="logo" src="images/logo.png" class="img-fluid" alt="OldCare Logo" />
+            </a>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarNav"
+              aria-controls="navbarNav"
+              aria-expanded="false"
+              aria-label="Toggle navigation menu"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ms-auto" role="menu">
+                <li class="nav-item" role="none">
+                  <a class="nav-link" href="index.html" role="menuitem" aria-current="page">Home</a>
+                </li>
+                <li class="nav-item" role="none">
+                  <a class="nav-link" href="services.html" role="menuitem">Services</a>
+                </li>
+                <li class="nav-item" role="none">
+                  <a class="nav-link" href="gallery.html" role="menuitem">Gallery</a>
+                </li>
+                <!-- <li class="nav-item" role="none">
+                  <a class="nav-link" href="contact.html" role="menuitem">Contact</a>
+                </li> -->
+                <li class="nav-item" role="none">
+                  <a class="nav-link" href="admission.html" role="menuitem">Admission</a>
+                </li>
+                <li class="nav-item" role="none">
+                  <a class="nav-link" href="Donate.html" role="menuitem">Donation</a>
+              </li>
+              </ul>
+              <!-- <div>
+                <button class="login">Login</button>
+              </div> -->
+            </div>
+          </div>
+        </nav>
+      </header>
+      
+      <div class="contai--12">
+        <h1 class="text-center pb-3">Old Care Pictures</h1>
+        <div class="button-container">
+          <button class="button left" onclick="slideLeft()">&#10094;</button>
+          <button class="button right" onclick="slideRight()">&#10095;</button>
+      </div>
+        <div class="gallery-container"> 
+            <div class="gallery">
+              <img src="images/20641.jpg" alt="Gallery Image 1">
+              <img src="images/image13.jpg" alt="Gallery Image 2">
+              <img src="images/image12.jpg" alt="Gallery Image 3">
+              <img src="images/image3.avif" alt="Gallery Image 4">
+              <img src="images/image15.jpg" alt="Gallery Image 5">
+              <img src="images/image5.jpg" alt="Gallery Image 6">
+              <img src="images/image21.jpg" alt="Gallery Image 7">
+              <img src="images/image11.jpg" alt="Gallery Image 8">
+              <img src="images/medicaton management.webp" alt="Gallery Image 9">
+              <img src="images/Rehabilitation and therapy.webp" alt="Gallery Image 10"> 
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let scrollAmount = 0;
+        const gallery = document.querySelector('.gallery');
+        const galleryContainer = document.querySelector('.gallery-container');
+        const images = document.querySelectorAll('.gallery img');
+
+        // Dynamically calculate scroll step based on gallery container width
+        function calculateScrollStep() {
+            return galleryContainer.offsetWidth;
+        }
+
+        function slideRight() {
+            scrollAmount += calculateScrollStep();
+            const maxScroll = gallery.scrollWidth - galleryContainer.offsetWidth;
+            if (scrollAmount > maxScroll) scrollAmount = maxScroll;
+            gallery.style.transform = `translateX(-${scrollAmount}px)`;
+        }
+
+        function slideLeft() {
+            scrollAmount -= calculateScrollStep();
+            if (scrollAmount < 0) scrollAmount = 0;
+            gallery.style.transform = `translateX(-${scrollAmount}px)`;
+        }
+
+        // Adjust the scroll amount when the window resizes
+        window.addEventListener('resize', () => {
+            scrollAmount = 0; 
+            gallery.style.transform = `translateX(${scrollAmount}px)`;
+        });
+
+        images.forEach(img => {
+            img.addEventListener('mouseenter', () => {
+                images.forEach(i => i.classList.add('blur'));
+                img.classList.add('zoomed');
+                img.classList.remove('blur');
+            });
+            img.addEventListener('mouseleave', () => {
+                images.forEach(i => i.classList.remove('blur', 'zoomed'));
+            });
+        });
+    </script>
+
+    <footer class="mt-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4"><!-- edit-->
+            <h1 style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">OldCare</h1>
+            <p><h3 style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">Providing compassionate care for your loved ones.</h3></p>
+          </div>
+          <div class="col-md-4">
+            <h4 style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">Quick Links</h4>
+            <ul class="list-unstyled">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="services.html">Services</a></li>
+              <li><a href="gallery.html">Gallery</a></li>
+              <li><a href="admission.html">Admission</a></li>
+            </ul>
+          </div>
+          <div class="col-md-4"><!-- edit-->
+            <h4 style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">Contact Us</h4>
+            <p>123 Care Lane, Elderly City, EC 12345</p>
+            <p>Phone: (123) 456-7890</p>
+            <p>Email: info@oldcare.com</p>
+          </div>
+        </div>
+        <hr />
+        <div class="text-center">
+          <p>&copy; 2024 OldCare. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+    <script src="js/scripts.js"></script>
+    <script src="js/bootstrap.bundle.js"></script>
+  </body>
+</html>

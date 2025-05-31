@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive 3D Centered Photo Gallery</title>
+    <link href="css\gallery.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #f7f7f7;
+        }
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 90%;
+            max-width: 800px;
+            text-align: center;
+        }
+        .navbar {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        .navbar a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+        .navbar a:hover {
+            color: green;
+        }
+        .gallery-container {
+            position: relative;
+            width: 660px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+        .gallery {
+            display: flex;
+            transition: transform 0.3s ease;
+            gap: 20px;
+        }
+        .gallery img {
+            width: 200px;
+            height: 300px;
+            object-fit: cover;
+            transition: transform 0.3s ease, filter 0.3s ease;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background-color: #fff;
+        }
+        .gallery img.blur {
+            filter: blur(4px);
+            transform: scale(0.9);
+        }
+        .gallery img.zoomed {
+            transform: scale(1.2);
+            filter: none;
+            z-index: 2;
+        }
+        .button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 15px;
+            cursor: pointer;
+            font-size: 18px;
+            z-index: 10;
+        }
+        .button.left {
+            left: 20px;
+        }
+        .button.right {
+            right: 20px;
+        }
+        .footer {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        /* Media Queries for Responsive Design */
+        @media (max-width: 768px) {
+            .gallery-container {
+                width: 440px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .gallery-container {
+                width: 300px;
+            }
+            .gallery img {
+                width: 150px;
+                height: 200px;
+            }
+            .button {
+                padding: 10px;
+            }
+        }
+
+        /* Additional Media Query for Small Phone Screens */
+        @media (max-width: 360px) {
+            .gallery-container {
+                width: 200px;
+            }
+            .gallery img {
+                width: 180px;
+                height: 270px;
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+        
+    </style>
+</head>
+<body><header>
+    <nav class="navbar navbar-expand-lg fixed-top" aria-label="Main navigation">
+      <div class="container">
+        <a class="navbar-brand d-block" href="index.html" aria-label="OldCare Home Page">
+          <img id="logo" src="images/logo.png" class="img-fluid" alt="OldCare Logo" />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation menu"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto" role="menu">
+            <li class="nav-item" role="none">
+              <a class="nav-link" href="index.html" role="menuitem" aria-current="page">Home</a>
+            </li>
+            <li class="nav-item" role="none">
+              <a class="nav-link" href="services.html" role="menuitem">Services</a>
+            </li>
+            <li class="nav-item" role="none">
+              <a class="nav-link" href="gallery.html" role="menuitem">Gallery</a>
+            </li>
+            <!-- <li class="nav-item" role="none">
+              <a class="nav-link" href="contact.html" role="menuitem">Contact</a>
+            </li> -->
+            <li class="nav-item" role="none">
+              <a class="nav-link" href="admission.html" role="menuitem">Admission</a>
+            </li>
+          </ul>
+          <div>
+            <button class="login">Login</button>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+  
+
+        
+
+        <div class="gallery-container">
+            <button class="button left" onclick="slideLeft()">&#10094;</button>
+            <div class="gallery">
+                <img src="image3.png" alt="Gallery Image 2">
+                <img src="image3.avif" alt="Gallery Image 3">
+                <img src="image1.jpg" alt="Gallery Image 4">
+                <img src="image2.jpg" alt="Gallery Image 5">
+                <img src="image11.jpg" alt="Gallery Image 2">
+                <img src="image13.jpg" alt="Gallery Image 3">
+                <img src="image12.jpg" alt="Gallery Image 4">
+                <img src="image15.jpg" alt="Gallery Image 5">
+                <img src="image14.jpg" alt="Gallery Image 5">
+
+
+
+                <img src="image21.jpg" alt="Gallery Image 2">
+                
+                <img src="image25.jpg" alt="Gallery Image 3">
+                <img src="image24.jpg" alt="Gallery Image 4">
+                <img src="image23.jpg" alt="Gallery Image 5">
+                <img src="image22.jpg" alt="Gallery Image 5">
+            </div>
+            <button class="button right" onclick="slideRight()">&#10095;</button>
+        </div>
+
+        <div class="footer">
+            <p>Copyright © 2024 All rights reserved | This template is made with ❤️ by SPC@Oldcare</p>
+        </div>
+    </div>
+
+    <script>
+        let scrollAmount = 0;
+        const gallery = document.querySelector('.gallery');
+        const galleryContainer = document.querySelector('.gallery-container');
+        const images = document.querySelectorAll('.gallery img');
+
+        // Dynamically calculate scroll step based on gallery container width
+        function calculateScrollStep() {
+            return galleryContainer.offsetWidth;
+        }
+
+        function slideRight() {
+            scrollAmount += calculateScrollStep();
+            const maxScroll = gallery.scrollWidth - galleryContainer.offsetWidth;
+            if (scrollAmount > maxScroll) scrollAmount = maxScroll;
+            gallery.style.transform = `translateX(-${scrollAmount}px)`;
+        }
+
+        function slideLeft() {
+            scrollAmount -= calculateScrollStep();
+            if (scrollAmount < 0) scrollAmount = 0;
+            gallery.style.transform = `translateX(-${scrollAmount}px)`;
+        }
+
+        // Adjust the scroll amount when the window resizes
+        window.addEventListener('resize', () => {
+            scrollAmount = 0; 
+            gallery.style.transform = `translateX(${scrollAmount}px)`;
+        });
+
+        images.forEach(img => {
+            img.addEventListener('mouseenter', () => {
+                images.forEach(i => i.classList.add('blur'));
+                img.classList.add('zoomed');
+                img.classList.remove('blur');
+            });
+            img.addEventListener('mouseleave', () => {
+                images.forEach(i => i.classList.remove('blur', 'zoomed'));
+            });
+        });
+    </script>
+</body>
+</html>

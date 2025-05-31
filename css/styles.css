@@ -1,0 +1,166 @@
+*{
+  font-family: "EB Garamond", serif;
+}
+:root {
+    --primary-color: #000000;
+    --secondary-color: #8AAAE5;
+    --text-color: #ffffff;
+    --background-color: #f4f4f4;
+  }
+  
+  #navbarNav ul li a{
+    font-size: 1.5em;
+}
+  body {
+   font-family: "Bodoni Moda", serif;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    font-size: 2em;
+  }
+  
+  .navbar {
+    background-color: var(--primary-color);
+    height: 15vh;
+  }
+  #logo{
+    height: 83px;
+    opacity: 1;
+  }
+
+  .navbar-brand, .nav-link {
+    font-size: 1.5em;
+    color: var(--text-color) !important;
+  }
+  .carousel-item{
+    height: 50%;
+  }
+  .btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+  }
+  
+  #heroCarousel{
+    height: 50%;
+  }
+
+  .btn-primary:hover {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+  }
+  
+  footer {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    padding: 20px 0;
+  }
+  
+  .list-unstyled li a{
+    text-decoration: none;
+    color: #333;
+  }
+
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(20px); 
+  }
+
+  .animate-on-scroll.enter-view {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+    
+  .service-card {
+    
+    transition: transform 0.3s;
+  }
+  
+  .service-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  
+  .card-img-top{
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+  .form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(76, 175, 80, 0.25);
+  }
+  
+  .gallery-item {
+    cursor: pointer;
+    border: 1px solid #FFFFFF;
+    transition: transform 0.3s;
+  }
+  
+  .gallery-item:hover {
+    transform: scale(1.1);
+  }
+  
+  #lightbox {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+  }
+
+  a{
+    opacity: 0.9;
+    
+  }
+
+  a:hover{
+    opacity: 1;
+    transform: scale(1.1);
+  }
+
+  .scrollToTop {
+    position: fixed;
+    bottom: 70px; /* Adjust to be above the footer */
+    right: 20px;
+    display: none; /* Hidden by default */
+    background-color: #8baed3; /* Button color */
+    color: white; /* Text color */
+    border: none;
+    padding: 20px;
+    border-radius: 40%; /* Round shape */
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    font-size: 20px; /* Size of the arrow */
+    transition: background-color 0.3s, transform 0.3s; /* Smooth transitions */
+  }
+  
+  
+  .scrollToTop:hover {
+  background-color: #8eb5df; /* Darker shade on hover */
+  transform: scale(1.1); /* Slightly enlarge on hover */
+  }
+
+
+
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  
+  
